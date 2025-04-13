@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Инструкция по запуску приложения
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+## Запуск бэкенда
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Перейдите в директорию с сервером:
+    ```bash
+    cd server
+    ```
+2. Сбилдите Docker контейнер:
+    ```bash
+    make build
+    ```
+3. Запустите Docker контейнер:
+    ```bash
+    make run
+    ```
 
-## Expanding the ESLint configuration
+## Запуск фронтенда
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Откройте отдельную командную строку.
+2. Установите все зависимости:
+    ```bash
+    npm install
+    ```
+3. Запустите фронтенд:
+    ```bash
+    npm run dev
+    ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Дополнительные технологии
+  
+- **TypeScript**: добавляет типизацию в JS, так что в процессе разработки возникает меньше ошибок при передаче данных.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React Router DOM**: библиотека для маршрутизации в React-приложениях. Используется для роутинга в приложении.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Tanstack Query**: Tanstack Query предоставляет удобные средства для получения, кэширования и синхронизации данных с сервером, что упрощает работу с API.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Axios**: клиент для HTTP-запросов. Был выбран для удобства работы с асинхронными запросами к серверу.
+
+- **React DnD**: библиотека для реализации drag-and-drop интерфейсов в React.
+
+- **MUI (Material-UI)**: Библиотека комопнентов. Была использована для ускорения разработки. 
